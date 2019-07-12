@@ -7,7 +7,7 @@ import os
 
 # Model related stuff
 CLASSES = ['orange', 'trump']
-EXPORTED_LEARNER = Path("./")  # Path to export.pkl
+EXPORTED_LEARNER = Path("./package/")  # Path to export.pkl
 
 # Our poor machine doesn't have a GPU, lol
 defaults.device = torch.device("cpu")
@@ -48,7 +48,3 @@ def predict_image(image_path):
             reverse=True
         )
     }
-
-
-if __name__ == "__main__":
-    app.run(port=os.getenv('PORT', 9000), debug=False)

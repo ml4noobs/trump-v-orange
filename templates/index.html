@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trump vs Orange: which is it?</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Trump vs Orange</h1>
+        <p style="max-width: 560px; margin-bottom: 2em;">
+          With this tool, you'll finally be able to tell Trump from an orange!
+        </p>
+
+        <form
+          id="upload-form"
+          action="{{ url_for('upload') }}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="file has-name" style="display: inline-block;">
+            <label class="file-label">
+              <input
+                class="file-input"
+                type="file"
+                id="file-picker"
+                accept="image/*"
+                name="file"
+                multiple
+              />
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Choose an image &hellip;
+                </span>
+              </span>
+              <span class="file-name" id="file-name"></span>
+            </label>
+          </div>
+
+          <input
+            type="submit"
+            class="button is-primary"
+            value="Trump or Orange?"
+          />
+        </form>
+      </div>
+    </section>
+    <script>
+      filePicker = document.getElementById("file-picker");
+      filePicker.addEventListener("change", () => {
+        document.getElementById("file-name").innerText =
+          filePicker.files[0].name;
+      });
+    </script>
+  </body>
+</html>

@@ -51,4 +51,4 @@ def predict_image(image_path):
 
 
 if __name__ == "__main__":
-    app.run(port=9000, debug=False)
+    app.run(port=os.getenv('PORT', 9000), debug=False)
